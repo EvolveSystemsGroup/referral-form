@@ -2,9 +2,11 @@
 
 This repository contains a script for creating a dynamic referral form. The user needs to fill out a few fields, and the referral email will be automatically generated live. When the user clicks "Send Email", it will open their email client with the content of the referral email. They then only need to click "Send".
 
+See it live here: https://evolvecall.com/page/referral
+
 ## Dependencies
 
-* The `referral-form.js` script only depends on browsers with support for ES6+ Javascript. 
+* The `referral-form.js` script only depends on browsers with support for ES6+ Javascript. Modern browsers like Firefox and Google Chrome are supported.
 * The `example.html` page included in this repository uses Bootstrap 5 classes for styling. The page links to a CDN version of the stylesheet.
 
 ## Usage

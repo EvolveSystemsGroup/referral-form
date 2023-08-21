@@ -81,28 +81,31 @@ function updatePreview(){
   updateReferTypeText();
 }
 
-function convertHTMLToPercentEncoded(){
-  // Convert HTML Email body to a percentage-encoded Email Body
-  let emailBody = document.getElementById('email-body');
-  let convEmailBody = '';
-  const regex = /\n\n/gi;
+function convertHTMLToPercentEncoded(elem){
+  let html = '';
+  const regexBr = /\n\n/gi;
   const percentBreak = '%0D%0A%0D%0A';
+  const regexComma = /,/gi;
+  const percentComma = '%2C';
 
-  for (let item of emailBody.children) {
+  for (let item of elem.children) {
     if (item.innerText !== ''){
-      convEmailBody += item.innerText.replace(regex, percentBreak) + percentBreak; // convert \n linebreaks to percentage-encoded linebreaks and add a percentage-encoded linebreak after every element
+      item = item.innerText.replace(regexBr, percentBreak); // Convert \n linebreaks to percent-encoded linebreaks
+      item = item.replace(regexComma, percentComma); // Convert literal commas to percent-encoded commas
+      html += item + percentBreak; // Add a percent-encoded linebreak after every element
     }
   }
 
-  convEmailBody = convEmailBody.slice(0, -6); // Remove linebreak for last element.
-  return convEmailBody;
+  html = html.slice(0, -6); // Remove linebreak for last element
+  return html;
 }
 
 function updateEmailBtn(){
   let emailBtn = document.getElementById('refer-mail');
-  let convEmailBody = convertHTMLToPercentEncoded();
+  let emailBody = document.getElementById('email-body');
+  let convEmailBody = convertHTMLToPercentEncoded(emailBody);
 
-  emailBtn.href = `mailto:${interestedPersonEmail.value}?cc=${referPersonEmail.value}&subject=${interestedPerson.value}, I'd like you to meet ${referPerson.value}&body=${convEmailBody}`
+  emailBtn.href = `mailto:${interestedPersonEmail.value}?cc=${referPersonEmail.value}&subject=${interestedPerson.value}%2C I'd like you to meet ${referPerson.value}&body=${convEmailBody}`
 }
 
 function initPreview(){
