@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Referral Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Start CSS Includes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- End CSS Includes -->
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="content-page">
+        <div class="content">
+
+          <!-- Start Content-->
+          <div class="container-fluid mt-4 mb-4" style="width: 80%;">
+
+            <div class="row">
+              <div class="col-lg-2 text-center">
+                <img src="johnnorth.jpeg" class="img-fluid img-thumbnail rounded-circle avatar-xxl">
+                <h4 class="fs-5 fw-bold">John North</h4>
+                <p>CEO <br>Evolve Systems Group Pty Ltd</p>
+              </div>
+              <div class="col-lg-10">
+                <h1 class="fs-2">Referral Form</h1>
+                <p>Sending a referral couldn't be easier with our unique feature below...</p>
+                <p>Fill out the form below and click <strong>Send Email</strong> and our expertly crafted email will be written on your behalf and CC me as well. If this function doesn't work as intended, simply copy the <strong>Email Preview</strong> and paste it into your email application.</p>
+                <div class="alert alert-info">
+                  <h4 class="alert-heading">Thank You</h4>
+                  <p>As a special thank you we pay out 5% on initial cash collected revenue within 30 days. Our average sale price is at least $5,000—that's at least $250 for a few minutes of your time.</p>
+                </div>
+              </div>
+            </div>
+            <label class="form-label">Step 1. Choose Referral Type</label>
+            <select id="referral-types" class="form-select">
+            </select>
+            <label class="form-label mt-2">Step 2. Your Name</label>
+            <input class="form-control" type="text" id="your-name">
+            <label class="form-label mt-2">Step 3. Recipient's Name</label>
+            <input class="form-control" type="text" id="interested-person">
+            <label class="form-label mt-2">Step 4. Recipient's Email Address</label>
+            <input type="text" class="form-control" id="interested-person-email">
+            <label class="form-label mt-2">Step 5. Tell Us About the Recipient</label>
+            <textarea class="form-control" id="recipient-description"></textarea>
+            <div class="alert alert-info pb-0 pt-0 mt-2">
+              <h4 class="alert-heading fs-5">Optional - Write a magical note explaining why you're referring <span class="refer-who"></span>.</h4>
+            </div>
+            <label class="form-label">Step 6. Personal Message</label>
+            <textarea class="form-control" id="preview-text"></textarea>
+            <h4 class="fw-bold mt-3">Email Preview</h4>
+            <div class="card">
+              <div class="card-body">
+                <h4 class="fs-5"><strong>To:</strong> <span class="interested-email"></span></h4>
+                <h4 class="fs-5"><strong>CC:</strong> <span class="referred-email"></span></h4>
+                <h4 class="fs-5"><strong>From:</strong> (Your Email Address)</h4>
+                <h4 class="fs-5"><strong>Subject:</strong> <span class="interested-who"></span>, I'd like you to meet <span class="refer-who"></span></h4>
+                <div id="email-body">
+                  <p>Greetings to you both!</p>
+                  <p>There's a saying that "Great minds think alike," but I believe they also benefit immensely when they collaborate.</p>
+                  <p>It recently struck me how much potential there is in introducing you two.</p>
+                  <div class="email-preview mt-2"></div>
+                  <p class="mt-2">John North is CEO of Evolve Systems Group and has helped many entrepreneurs to create and launch books, as well as building marketing systems and podcasts.</p>
+                  <p>To book a call with John, go here: <a href="https://go.oncehub.com/bookjohnorth">https://go.oncehub.com/bookjohnorth</a></p>
+                  <div class="mt-2">About <span class="interested-who"></span>: <span class="about-recipient"></span></div>
+                  <div id="refer-type-text" class="mt-2">
+                  </div>
+                  <p class="mt-2">I'll leave it in your capable hands to take it from here. All the best in your discussions!</p>
+                  <p>Thanks again,</p>
+                  <div class="sig"></div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-row flex-wrap mt-3">
+              <a href="mailto:" type="button" class="btn btn-primary me-2" id="refer-mail">Send Email</a>
+              <button type="button" class="btn btn-secondary me-2" id="copy-mail">Or Copy to Clipboard</button>
+            </div>
+
+            <h4 class="fw-bold mt-3">Does The Wrong Email Program Open When You Click "Send Email"?</h4>
+            <p>You need to change your default email program to your preferred email program.</p>
+            <h5 class="fw-bold">Microsoft Windows 11</h5>
+            <ol>
+              <li>Open <strong>Settings</strong>.</li>
+              <li>Click <strong>Apps</strong>.</li>
+              <li>Click <strong>Default Apps</strong>.</li>
+              <li>Search for your email program and click it.</li>
+              <li>Click the button below <strong>MAILTO</strong> and click your email program.</li>
+            </ol>
+
+            <h5 class="fw-bold">Apple macOS</h5>
+            <ol>
+              <li>Open the <strong>Mail app</strong>.</li>
+              <li>From the Mail menu <strong>in the menu bar, choose Settings</strong> (or Preferences). You need to have already added an email account in Mail to change the settings.</li>
+              <li>Click <strong>General</strong>.</li>
+              <li>Choose an email app from the <strong>Default email reader</strong> pop-up menu.</li>
+            </ol>
+            <p>For more help, see <a href="https://support.apple.com/en-au/HT201607">https://support.apple.com/en-au/HT201607</a></p>
+
+            <h4 class="fw-bold">Privacy Notice</h4>
+            <p>No information you enter on this page is stored. All functionality is implemented client-side on your browser, and our servers are only involved in serving the initial assets.</p>
+
+          </div> <!-- End Content -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Start JS Includes -->
+    <script src="referral-form.js"></script>
+    <!-- End JS Includes -->
+
+    <script>
+      let referralTypes = [
+          {name: "General", value: "general", text: ``},
+          {name: "Book Publishing", value: "book-publishing", text: `Through his company, Evolve Global Publishing, John been responsible for publishing hundreds of books and all of them, without fail, have achieved #1 best-seller status on Amazon. They offer a worry-free professional service to achieve the creation, publishing, and launch of your book.`},
+          {name: "Best Seller Campaign", value: "best-seller", text: `John has been involved with over 2,500+ Amazon campaigns with 100% Success rate. His team handles the entire campaign from start to finish and ensure you achieve #1 International Best Seller for your book.`},
+          {name: "Launch Podcast", value: "launch-podcast", text: `John can elevate your podcasting Journey with his comprehensive "all in one" system. He can have a complimentary VIP Discovery Call with you to discuss the power of profitable podcasting using what he calls his "Onion System".`},
+          {name: "Evolvepreneur app Platform", value: "ep-app", text: `Evolvepreneur.app ® offers an easy and cost-effective way to build your online business by helping you avoid the pain and stress of implementing multiple systems, giving you the freedom to automate and scale.
+
+      John's mission is to start a revolution that will help entrepreneurs establish their own complete business system that can compete with the big end of town and mainstream social media platforms.`},
+          ];
+      referralEmailInit('John North', 'refer@email.com', referralTypes);
+    </script>
+  </body>
+</html>
