@@ -88,7 +88,7 @@ function convertHTMLToPercentEncoded(elem){
   const regexComma = /,/gi;
   const percentComma = '%2C';
 
-  for (let item of elem.children) {
+  for (let item of elem) {
     if (item.innerText !== ''){
       item = item.innerText.replace(regexBr, percentBreak); // Convert \n linebreaks to percent-encoded linebreaks
       item = item.replace(regexComma, percentComma); // Convert literal commas to percent-encoded commas
@@ -103,7 +103,7 @@ function convertHTMLToPercentEncoded(elem){
 function updateEmailBtn(){
   let emailBtn = document.getElementById('refer-mail');
   let emailBody = document.getElementById('email-body');
-  let convEmailBody = convertHTMLToPercentEncoded(emailBody);
+  let convEmailBody = convertHTMLToPercentEncoded(emailBody.children);
 
   emailBtn.href = `mailto:${interestedPersonEmail.value}?cc=${referPersonEmail.value}&subject=${interestedPerson.value}%2C I'd like you to meet ${referPerson.value}&body=${convEmailBody}`
 }
